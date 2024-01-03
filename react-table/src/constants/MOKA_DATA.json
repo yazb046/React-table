@@ -1,0 +1,89 @@
+[
+    {
+        "id":1,
+        "first_name": "Tanner",
+        "last_name" : "Linsly",
+        "status":"manager",
+        "salary_fund": 120000,
+        "coefficient1": 1.5,
+        "coefficient2": 2.5,
+        "coefficient3": 4
+
+    },
+    {
+        "id":2,
+        "first_name": "Tandy",
+        "last_name" : "Miller",
+        "status":"saller",
+        "salary_fund": 100000,
+        "coefficient1": 1.5,
+        "coefficient2": 2.5,
+        "coefficient3": 4
+
+    },
+    {
+        "id":3,
+        "first_name": "Joe",
+        "last_name" : "Dirte",
+        "status":"office-manager",
+        "salary_fund": 90000,
+        "coefficient1": 1.5,
+        "coefficient2": 2.5,
+        "coefficient3": 4
+
+    },
+    {
+        "id":4,
+        "first_name": "Alice",
+        "last_name" : "Johnson",
+        "status":"project-manager",
+        "salary_fund": 200000,
+        "coefficient1": 1.5,
+        "coefficient2": 2.5,
+        "coefficient3": 4
+
+    },
+    {
+        "id":5,
+        "first_name": "Boris",
+        "last_name" : "Ivanov",
+        "status":"manager",
+        "salary_fund": 150000,
+        "coefficient1": 1.5,
+        "coefficient2": 2.5,
+        "coefficient3": 4
+
+    },
+    {
+        "id":6,
+        "first_name": "Chen",
+        "last_name" : "Wei",
+        "status":"manager",
+        "salary_fund": 130000,
+        "coefficient1": 1.5,
+        "coefficient2": 2.5,
+        "coefficient3": 4
+    },
+    {
+        "id":7,
+        "first_name": "David",
+        "last_name" : "Smith",
+        "status":"manager",
+        "salary_fund": 140000,
+        "coefficient1": 1.5,
+        "coefficient2": 2.5,
+        "coefficient3": 4
+    },
+    {
+        "id":8,
+        "first_name": "Emily",
+        "last_name" : "Brown",
+        "status":"chif",
+        "salary_fund": 250000,
+        "coefficient1": 1.5,
+        "coefficient2": 2.5,
+        "coefficient3": 4
+    }
+
+
+]

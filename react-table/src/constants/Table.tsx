@@ -5,39 +5,52 @@ import '../index.css'
 interface TableProps {
     columns: any[];
     data: any[];
+    updateData: (rowIndex: number, columnId: string, value: any) => void;
 }
 
-const Table: React.FC<TableProps> = ({columns, data}) => {
+const Table: React.FC<TableProps> = ({columns, data, updateData}) => {
     const {getTableProps, getTableBodyProps, headerGroups, rows, prepareRow} = useTable({columns, data});
 
-    return (
-      <div className='table-container'>
-        <table className='table' {...getTableProps()}>
-          <thead>
-            {headerGroups.map((headerGroup) => (
-              <tr {...headerGroup.getHeaderGroupProps()}>
-                {headerGroup.headers.map((column) => (
-                  <th {...column.getHeaderProps()}>{column.render("Header")}</th>
-                ))}
-              </tr>
-            ))}
-          </thead>
-          <tbody {...getTableBodyProps()}>
-            {rows.map(row => {
-                prepareRow(row);
-                return(
-                    <tr {...row.getRowProps()}>
-                        {row.cells.map(cell => (
-                            <td {...cell.getCellProps()}>
-                                {cell.render('Cell')}
-                            </td>
-                        ))}
-                    </tr>
-                );
-            })}
-          </tbody>
-        </table>
-      </div>
+    const handleCellChange = (event: React.ChangeEvent<HTMLTableCellElement>, rowIndex: number, columnId: string) => {
+      const {innerText} = event.target;
+      updateData(rowIndex, columnId, innerText);
+  };
+
+      return (
+        <div className='table-container'>
+            <table className='table' {...getTableProps()}>
+                <thead>
+                    {headerGroups.map((headerGroup) => (
+                        <tr {...headerGroup.getHeaderGroupProps()}>
+                            {headerGroup.headers.map((column) => (
+                                <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+                            ))}
+                        </tr>
+                    ))}
+                </thead>
+                <tbody {...getTableBodyProps()}>
+                    {rows.map((row, rowIndex) => {
+                        prepareRow(row);
+                        return (
+                            <React.Fragment key={rowIndex}>
+                                <tr {...row.getRowProps()}>
+                                    {row.cells.map((cell) => (
+                                        <td
+                                            {...cell.getCellProps()}
+                                            contentEditable
+                                            suppressContentEditableWarning
+                                            onBlur={(event) => handleCellChange(event, rowIndex, cell.column.id)}
+                                        >
+                                            {cell.render("Cell")}
+                                        </td>
+                                    ))}
+                                </tr>
+                            </React.Fragment>
+                        );
+                    })}
+                </tbody>
+            </table>
+        </div>
     );
 
 
